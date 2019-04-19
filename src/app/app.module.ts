@@ -7,6 +7,7 @@ import { DestinationComponent } from './destinations/destination/destination.com
 import { NavigationComponent } from './navigation/navigation.component';
 import {RouterModule} from '@angular/router';
 import { DestinationsComponent } from './destinations/destinations.component';
+import { AddNewDestinationComponent } from './destinations/add-new-destination/add-new-destination.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DestinationsComponent } from './destinations/destinations.component';
     DestinationComponent,
     NavigationComponent,
     DestinationsComponent,
+    AddNewDestinationComponent,
   ],
   imports: [
     BrowserModule,
