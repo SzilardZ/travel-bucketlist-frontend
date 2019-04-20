@@ -2,7 +2,13 @@
   <div id="typography">
     <div class="row">
       <div class="typography-line">
-        <app-add-new-destination-modal></app-add-new-destination-modal>
+        <button type="button"
+                class="btn btn-warning"
+                data-toggle="modal"
+                (click)="loadAddNewDestinationModal()">
+          Add New Destination
+        </button>
+        <app-add-new-destination-modal *ngIf="loadNewDestinationModal"></app-add-new-destination-modal>
       </div>
     </div>
   </div>

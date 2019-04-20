@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNewDestinationComponent implements OnInit {
 
+  private loadNewDestinationModal: boolean;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  loadAddNewDestinationModal() {
+    this.loadNewDestinationModal = true;
+  }
 }
