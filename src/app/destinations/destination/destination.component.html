@@ -3,6 +3,48 @@
   <div class="card-body">
     <h4 class="card-title">Destination title</h4>
     <p class="card-text">My destination text</p>
-    <a href="#" class="btn btn-outline-warning">Add to visited</a>
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add To Visited</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="dateOfBirth">Date of birth</label>
+            <div class="input-group">
+              <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+              </div>
+            </div>
+            <label for="title">Destination</label>
+            <input type="text"
+                   id="title"
+                   class="form-control"
+                   #nameInput>
+            <label for="note">Note</label>
+            <input type="text"
+                   id="note"
+                   class="form-control"
+                   #noteInput>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      </div>
+    </ng-template>
+    <div class="new-destination row justify-content-center">
+      <button class="btn btn-outline-warning" (click)="open(content)">Add to Visited</button>
+    </div>
+
+    <hr>
+
+    <pre>{{closeResult}}</pre>
+
   </div>
 </div>
