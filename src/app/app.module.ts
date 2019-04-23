@@ -11,6 +11,7 @@ import { AddNewDestinationComponent } from './destinations/add-new-destination/a
 import { LoginModalComponent } from './modals/login-modal/login-modal.component';
 import { AddNewDestinationModalComponent } from './modals/add-new-destination-modal/add-new-destination-modal.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
