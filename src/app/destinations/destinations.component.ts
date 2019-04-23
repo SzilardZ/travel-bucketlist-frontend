@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import {DestinationsService} from './destinations.service';
+import {Destination} from './destination.model';
 
 @Component({
   selector: 'app-destinations',
   templateUrl: './destinations.component.html',
-  styleUrls: ['./destinations.component.css']
+  styleUrls: ['./destinations.component.css'],
+  providers: [DestinationsService]
+
 })
 export class DestinationsComponent implements OnInit {
 
-  constructor() { }
+  destinations: Destination[] = [];
+
+  constructor(private destinationsService: DestinationsService) { }
 
   ngOnInit() {
+    this.destinations = this.destinationsService.getDestinations();
+  }
+
+  addNewDestination(location: string, note: string) {
+    this.destinationsService.addNewDestination(location, note);
   }
 
 }
