@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { DestinationComponent } from './destinations/destination/destination.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -10,8 +9,10 @@ import { AddNewDestinationComponent } from './destinations/add-new-destination/a
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { VisitedDestinationsComponent } from './destinations/visited-destinations/visited-destinations.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'visited-destinations', component: VisitedDestinationsComponent}
 ];
 
@@ -23,13 +24,14 @@ const appRoutes: Routes = [
     DestinationsComponent,
     AddNewDestinationComponent,
     VisitedDestinationsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule,
     ReactiveFormsModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
