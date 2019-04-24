@@ -11,7 +11,7 @@ import {Destination} from './destination.model';
 })
 export class DestinationsComponent implements OnInit {
 
-  destinations: Destination[] = [];
+  destinations: Destination[];
 
   constructor(private destinationsService: DestinationsService) { }
 

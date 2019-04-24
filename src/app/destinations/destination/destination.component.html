@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card" (click)="onSelected()">
   <img class="card-img-top" src="/assets/img/probakep.jpg" alt="Card image">
   <div class="card-body">
-    <h4 class="card-title">Destination title</h4>
-    <p class="card-text">My destination text</p>
+    <h4 class="card-title">{{ destination.location }}</h4>
+    <p class="card-text">{{ destination.note }}</p>
 
     <ng-template #content let-modal>
       <div class="modal-header">
@@ -32,6 +32,8 @@
             <input type="text"
                    id="note"
                    class="form-control"
+                   maxlength="50" size="50"
+                   placeholder="max 50 character"
                    #noteInput>
           </div>
         </form>
@@ -43,8 +45,6 @@
     <div class="new-destination row justify-content-center">
       <button type="button" class="btn btn-outline-warning" (click)="open(content)">Add to Visited</button>
     </div>
-
-    <hr>
 
 <!--    <pre>{{closeResult}}</pre>-->
 

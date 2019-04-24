@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Destination} from '../destination.model';
+import {DestinationsService} from '../destinations.service';
 
 @Component({
   selector: 'app-destination',
@@ -8,9 +10,15 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class DestinationComponent implements OnInit {
 
+  @Input() destination: Destination;
+
   closeResult: string;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private destinationsService: DestinationsService) {}
+
+  onSelected() {
+    this.destinationsService.selectedDestination.emit(this.destination);
+  }
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

@@ -1,6 +1,13 @@
 import {Destination} from './destination.model';
+import {EventEmitter, Injectable} from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 export class DestinationsService {
+
+  selectedDestination = new EventEmitter<Destination>();
 
   private destinations: Destination[] = [
     new Destination('Baku', 'want to go there very much'),
@@ -22,7 +29,7 @@ export class DestinationsService {
   }
 
   getDestinations(): Destination[] {
-    return this.destinations;
+    return this.destinations.slice();
   }
 
 }
