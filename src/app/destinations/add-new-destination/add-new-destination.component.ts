@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {DestinationsService} from '../destinations.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-new-destination',
@@ -9,8 +11,26 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class AddNewDestinationComponent implements OnInit {
 
   closeResult: string;
+  addNewDestination: FormGroup;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,
+              private destinationsService: DestinationsService) {}
+
+  ngOnInit() {
+    this.addNewDestination = new FormGroup({
+      'destinationTitle': new FormControl(null, Validators.required),
+      'destinationNote': new FormControl(null),
+    })
+  }
+
+  onSubmit() {
+    this.destinationsService.addNewDestination(
+      this.addNewDestination.value['destinationTitle'],
+      this.addNewDestination.value['destinationNote'],
+    );
+    this.modalService.dismissAll();
+
+  }
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -31,6 +51,4 @@ export class AddNewDestinationComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-  }
 }

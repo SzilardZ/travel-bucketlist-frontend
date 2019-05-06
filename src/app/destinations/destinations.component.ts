@@ -19,8 +19,4 @@ export class DestinationsComponent implements OnInit {
     this.destinations = this.destinationsService.getDestinations();
   }
 
-  addNewDestination(location: string, note: string) {
-    this.destinationsService.addNewDestination(location, note);
-  }
-
 }

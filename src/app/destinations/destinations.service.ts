@@ -21,11 +21,7 @@ export class DestinationsService {
 
   addNewDestination(location: string, note: string) {
     this.destinations.push(new Destination(location, note));
-
-  }
-
-  checkIfVisited() {
-
+    console.log(this.destinations);
   }
 
   getDestinations(): Destination[] {
