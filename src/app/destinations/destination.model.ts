@@ -8,6 +8,7 @@ export class Destination {
     this.location = location;
     this.note = note;
     this.visited = false;
+
   }
 
 }

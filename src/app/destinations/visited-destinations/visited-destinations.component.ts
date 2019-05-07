@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Destination} from '../destination.model';
+import {DestinationsService} from '../destinations.service';
 
 @Component({
   selector: 'app-visited-destinations',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitedDestinationsComponent implements OnInit {
 
-  constructor() { }
+  destinations: Destination[];
+
+  constructor(private destinationsService: DestinationsService) { }
 
   ngOnInit() {
+    this.destinations = this.destinationsService.getDestinations();
   }
 
 }
