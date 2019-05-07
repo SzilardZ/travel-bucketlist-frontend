@@ -1,18 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { BucketListComponent } from './bucket-list/bucket-list.component';
-import { DestinationComponent } from './destination/destination.component';
+import { DestinationComponent } from './destinations/destination/destination.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import {RouterModule, Routes} from '@angular/router';
+import { DestinationsComponent } from './destinations/destinations.component';
+import { AddNewDestinationComponent } from './destinations/add-new-destination/add-new-destination.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { VisitedDestinationsComponent } from './destinations/visited-destinations/visited-destinations.component';
+import { HomeComponent } from './home/home.component';
+
+const appRoutes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'visited-destinations', component: VisitedDestinationsComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    BucketListComponent,
-    DestinationComponent
+    DestinationComponent,
+    NavigationComponent,
+    DestinationsComponent,
+    AddNewDestinationComponent,
+    VisitedDestinationsComponent,
+    HomeComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    NgbModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
