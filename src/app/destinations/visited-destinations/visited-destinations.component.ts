@@ -14,7 +14,7 @@ export class VisitedDestinationsComponent implements OnInit {
   constructor(private destinationsService: DestinationsService) { }
 
   ngOnInit() {
-    this.destinations = this.destinationsService.getDestinations();
+    // this.destinations = this.destinationsService.getDestinations();
   }
 
 }

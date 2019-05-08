@@ -6,7 +6,7 @@ import {Destination} from './destination.model';
   selector: 'app-destinations',
   templateUrl: './destinations.component.html',
   styleUrls: ['./destinations.component.css'],
-  providers: [DestinationsService]
+  // providers: [DestinationsService]
 
 })
 export class DestinationsComponent implements OnInit {
@@ -16,7 +16,16 @@ export class DestinationsComponent implements OnInit {
   constructor(private destinationsService: DestinationsService) { }
 
   ngOnInit() {
-    this.destinations = this.destinationsService.getDestinations();
+    this.destinationsService.getDestinations()
+      .subscribe(
+        (destinations: any[]) => this.destinations = destinations,
+      );
+
+    // this.destinationsService.getDestinations()
+    //   .subscribe(
+    //     (response) => console.log(response),
+    //     (error) => console.log(error)
+    //   );
   }
 
 }

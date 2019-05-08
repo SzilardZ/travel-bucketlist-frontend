@@ -14,7 +14,8 @@ export class DestinationComponent implements OnInit {
 
   closeResult: string;
 
-  constructor(private modalService: NgbModal, private destinationsService: DestinationsService) {}
+  constructor(private modalService: NgbModal,
+              private destinationsService: DestinationsService) {}
 
   onSelected() {
     this.destinationsService.selectedDestination.emit(this.destination);
