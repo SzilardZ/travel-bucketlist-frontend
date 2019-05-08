@@ -43,4 +43,7 @@ export class DestinationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDelete() {
+    this.destinationsService.deleteDestination();
+  }
 }

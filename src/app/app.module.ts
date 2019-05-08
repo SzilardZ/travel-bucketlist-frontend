@@ -10,7 +10,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { VisitedDestinationsComponent } from './destinations/visited-destinations/visited-destinations.component';
 import { HomeComponent } from './home/home.component';
-import {ServerService} from './server.service';
 import {HttpModule} from '@angular/http';
 import {DestinationsService} from './destinations/destinations.service';
 
@@ -37,7 +36,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule,
   ],
-  providers: [ServerService, DestinationsService],
+  providers: [DestinationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

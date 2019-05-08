@@ -1,8 +1,9 @@
 import {Destination} from './destination.model';
 import {EventEmitter, Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-import {map} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import { Response } from '@angular/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class DestinationsService {
   // }
 
   storeDestination(destination: any) {
-    return this.http.post('https://udemy-ng-http-2ec0e.firebaseio.com/data.json', destination);
+    return this.http.post('http://localhost:8080/add-destination', destination);
   }
 
   createDestination(location: string, note: string): Destination {
@@ -49,9 +50,19 @@ export class DestinationsService {
           return data;
         }
       ))
+      .pipe(catchError(
+        (error: Response) => {
+          return Observable.throw('Something went wrong!');
+        }
+      ))
   }
 
   markDestinationAsVisited() {
 
   }
+
+  deleteDestination() {
+    return this.http.delete('http://localhost:8080//delete-destination')
+  }
+
 }

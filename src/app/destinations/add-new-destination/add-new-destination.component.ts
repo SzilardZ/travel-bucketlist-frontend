@@ -37,6 +37,7 @@ export class AddNewDestinationComponent implements OnInit {
         (response) => console.log(response),
         (error) => console.log(error)
       );
+
     this.modalService.dismissAll();
 
   }
