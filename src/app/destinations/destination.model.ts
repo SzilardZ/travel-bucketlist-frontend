@@ -1,5 +1,6 @@
 export class Destination {
 
+  public destinationId: number;
   public location: string;
   public note: string;
   public visited: boolean;
@@ -9,9 +10,6 @@ export class Destination {
   constructor(location: string, note: string) {
     this.location = location;
     this.note = note;
-    this.visited = false;
-    this.visitedFrom = null;
-    this.visitedUntil = null;
 
   }
 

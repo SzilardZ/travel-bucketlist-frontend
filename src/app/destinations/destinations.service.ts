@@ -57,12 +57,12 @@ export class DestinationsService {
       ))
   }
 
-  markDestinationAsVisited() {
-
+  markDestinationAsVisited(destination: any) {
+    return this.http.put('http://localhost:8080/add-to-visited', destination)
   }
 
-  deleteDestination() {
-    return this.http.delete('http://localhost:8080//delete-destination')
+  deleteDestination(id: number) {
+    return this.http.delete('http://localhost:8080//delete-destination') //, id);
   }
 
 }

@@ -6,8 +6,6 @@ import {Destination} from './destination.model';
   selector: 'app-destinations',
   templateUrl: './destinations.component.html',
   styleUrls: ['./destinations.component.css'],
-  // providers: [DestinationsService]
-
 })
 export class DestinationsComponent implements OnInit {
 
@@ -20,12 +18,8 @@ export class DestinationsComponent implements OnInit {
       .subscribe(
         (destinations: any[]) => this.destinations = destinations,
       );
-
-    // this.destinationsService.getDestinations()
-    //   .subscribe(
-    //     (response) => console.log(response),
-    //     (error) => console.log(error)
-    //   );
   }
+
+
 
 }
