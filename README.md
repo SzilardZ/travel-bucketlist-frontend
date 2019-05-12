@@ -1,5 +1,8 @@
 # TravelBucketlistFrontend
 
+*** Project is in development stage, it is not production ready yet. ***
+
+
 This is the frontend of my Pet project. The app's name is Travel Bucket List. You can add new destinations where you would like to go in your life.
 
 
@@ -8,10 +11,18 @@ After you visited the place, you can set the destination to visited, and from no
 
 The project was made with Angular. The backend is java spring boot. I used bootstrap for the design. Apart from this, the whole design of the page was created by me.
 
+Technologies used for the project:
+
+Frontend
+  - Angular
+  - Bootstrap
+
+Backend
+  - Spring Boot
+  - Hibernate
+  - PostgreSQL
+  - JPA
+  - Lombok
 
 ![alt text](https://i.lensdump.com/i/W7eY71.png)
-
-
-
-** Project is in development stage, it is not production ready yet. **
 
