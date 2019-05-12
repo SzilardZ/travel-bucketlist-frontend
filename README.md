@@ -1,8 +1,5 @@
 # TravelBucketlistFrontend
 
-*** Project is in development stage, it is not production ready yet. ***
-
-
 This is the frontend of my Pet project. The app's name is Travel Bucket List. You can add new destinations where you would like to go in your life.
 
 
@@ -26,3 +23,6 @@ Backend
 
 ![alt text](https://i.lensdump.com/i/W7eY71.png)
 
+________________________________________________________________________
+
+*** Project is in development stage, it is not production ready yet. ***
