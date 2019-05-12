@@ -1,4 +1,4 @@
-# TravelBucketlistFrontend
+# Travel Bucket List - frontend
 
 This is the frontend of my Pet project. The app's name is Travel Bucket List. You can add new destinations where you would like to go in your life.
 
