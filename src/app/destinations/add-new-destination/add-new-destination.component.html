@@ -6,32 +6,32 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="addNewDestination" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="title">Destination</label>
         <input type="text"
                id="title"
                class="form-control"
-               maxlength="20" size="20"
-               placeholder="max 20 character"
-               #nameInput>
+               formControlName="destinationTitle"
+               class="form-control"
+               >
         <label for="note">Note</label>
         <input type="text"
                id="note"
                class="form-control"
-               maxlength="50" size="50"
-               placeholder="max 50 character"
-               #noteInput>
+               formControlName="destinationNote"
+               class="form-control"
+               >
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark">Save</button>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
   </div>
 </ng-template>
 
 <div class="new-destination row justify-content-center">
-<button type="button" class="btn btn-lg btn btn-warning" (click)="open(content)">Add New Destination</button>
+  <button type="button" class="btn btn-lg btn btn-warning" (click)="open(content)">Add New Destination</button>
 </div>
 <br>
 <hr>

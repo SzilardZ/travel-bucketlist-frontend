@@ -1,3 +1,5 @@
-<p>
-  visited-destinations works!
-</p>
+<div class="row align-content-center">
+  <div class="column" *ngFor="let destination of destinations">
+    <app-destination *ngIf="destination.visited" [destination]="destination"></app-destination>
+  </div>
+</div>

@@ -1,5 +1,8 @@
 import {Destination} from './destination.model';
 import {EventEmitter, Injectable} from '@angular/core';
+import {catchError, map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,27 +12,37 @@ export class DestinationsService {
 
   selectedDestination = new EventEmitter<Destination>();
 
-  private destinations: Destination[] = [
-    new Destination('Baku', 'want to go there very much'),
-    new Destination('Rome', 'want to visit'),
-    new Destination('Tel-Aviv', 'would be nice to go there'),
-    new Destination('New York', 'must visit!'),
-    new Destination('Zurich', 'why not'),
-    new Destination('San Fransisco', 'will be there in 2 years'),
-    new Destination('Toronto', 'I will not die until I have not seen it!'),
-  ];
+  constructor(private httpClient: HttpClient) {}
 
-  addNewDestination(location: string, note: string) {
-    this.destinations.push(new Destination(location, note));
-
+  storeDestination(destination: any) {
+    return this.httpClient.post('http://localhost:8080/add-destination', destination);
   }
 
-  checkIfVisited() {
-
+  createDestination(location: string, note: string): Destination {
+    return new Destination(location, note);
   }
 
-  getDestinations(): Destination[] {
-    return this.destinations.slice();
+  getDestinations() {
+    return this.httpClient.get<Destination[]>('http://localhost:8080/destinations')
+      .pipe(map(
+        (destinations) => {
+          return destinations;
+        }
+      ))
+      .pipe(catchError(
+        (error: Response) => {
+          return Observable.throw('Something went wrong!');
+        }
+      ))
+  }
+
+  deleteDestination(id: number) {
+    return this.httpClient.delete<string>('http://localhost:8080/delete-destination/' + id);
+  }
+
+
+  markDestinationAsVisited(id: number) {
+    return this.httpClient.put('http://localhost:8080/add-to-visited', id);
   }
 
 }

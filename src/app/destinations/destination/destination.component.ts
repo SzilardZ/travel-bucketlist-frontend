@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Destination} from '../destination.model';
 import {DestinationsService} from '../destinations.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-destination',
@@ -13,8 +14,10 @@ export class DestinationComponent implements OnInit {
   @Input() destination: Destination;
 
   closeResult: string;
+  markDestinationAsVisited: FormGroup;
 
-  constructor(private modalService: NgbModal, private destinationsService: DestinationsService) {}
+  constructor(private modalService: NgbModal,
+              private destinationsService: DestinationsService) {}
 
   onSelected() {
     this.destinationsService.selectedDestination.emit(this.destination);
@@ -39,7 +42,30 @@ export class DestinationComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.markDestinationAsVisited = new FormGroup({
+      'visitedFrom': new FormControl(null, Validators.required),
+      'visitedUntil': new FormControl(null, Validators.required),
+      'destinationNote': new FormControl(null)
+    })
   }
 
+  onDelete(id: number) {
+    this.destinationsService.deleteDestination(id).subscribe(
+      (response) => {
+        if (response) { this.ngOnInit(); }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );;
+  }
+
+  onSubmit(id: number) {
+    const visitedFrom = this.markDestinationAsVisited['visitedFrom'];
+    const visitedUntil = this.markDestinationAsVisited['visitedUntil'];
+    const note = this.markDestinationAsVisited['destinationNote'];
+    // this.destinationsService.markDestinationAsVisited(id, visitedFrom);
+    this.modalService.dismissAll();
+  }
 }
