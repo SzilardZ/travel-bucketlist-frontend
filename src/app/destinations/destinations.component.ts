@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DestinationsService} from './destinations.service';
 import {Destination} from './destination.model';
 
@@ -15,11 +15,10 @@ export class DestinationsComponent implements OnInit {
 
   ngOnInit() {
     this.destinationsService.getDestinations()
-      .subscribe(
-        (destinations: any[]) => this.destinations = destinations,
-      );
+      .subscribe( response => {
+        console.log(response);
+        this.destinations = response;
+      });
   }
-
-
 
 }

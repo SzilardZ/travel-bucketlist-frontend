@@ -25,10 +25,6 @@ export class AddNewDestinationComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.destinationsService.addNewDestination(
-    //   this.addNewDestination.value['destinationTitle'],
-    //   this.addNewDestination.value['destinationNote'],
-    // );
     const title = this.addNewDestination.value['destinationTitle'];
     const note = this.addNewDestination.value['destinationNote'];
     const destination = this.destinationsService.createDestination(title, note);

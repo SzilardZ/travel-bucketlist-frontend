@@ -10,8 +10,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { VisitedDestinationsComponent } from './destinations/visited-destinations/visited-destinations.component';
 import { HomeComponent } from './home/home.component';
-import {HttpModule} from '@angular/http';
 import {DestinationsService} from './destinations/destinations.service';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     NgbModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule,
+    HttpClientModule,
   ],
   providers: [DestinationsService],
   bootstrap: [AppComponent]

@@ -51,14 +51,21 @@ export class DestinationComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    this.destinationsService.deleteDestination(id);
+    this.destinationsService.deleteDestination(id).subscribe(
+      (response) => {
+        if (response) { this.ngOnInit(); }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );;
   }
 
   onSubmit(id: number) {
     const visitedFrom = this.markDestinationAsVisited['visitedFrom'];
     const visitedUntil = this.markDestinationAsVisited['visitedUntil'];
     const note = this.markDestinationAsVisited['destinationNote'];
-    // this.destinationsService.markDestinationAsVisited(id, visitedFrom, visitedUntil, note);
+    // this.destinationsService.markDestinationAsVisited(id, visitedFrom);
     this.modalService.dismissAll();
   }
 }
