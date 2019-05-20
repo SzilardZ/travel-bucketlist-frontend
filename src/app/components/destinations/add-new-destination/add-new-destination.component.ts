@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {DestinationsService} from '../destinations.service';
+import {DestinationsService} from '../../../services/destinations.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Destination} from '../destination.model';
 
 @Component({
   selector: 'app-add-new-destination',

@@ -1,4 +1,4 @@
-import {Destination} from './destination.model';
+import {Destination} from '../components/destinations/destination.model';
 import {EventEmitter, Injectable} from '@angular/core';
 import {catchError, map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
@@ -40,9 +40,9 @@ export class DestinationsService {
     return this.httpClient.delete<string>('http://localhost:8080/delete-destination/' + id);
   }
 
-
   markDestinationAsVisited(id: number) {
-    return this.httpClient.put('http://localhost:8080/add-to-visited', id);
+    console.log('UUUUUUUU ' + id);
+    return this.httpClient.put('http://localhost:8080/add-to-visited/', id);
   }
 
 }

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Destination} from '../destination.model';
-import {DestinationsService} from '../destinations.service';
+import {DestinationsService} from '../../../services/destinations.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -34,7 +34,9 @@ export class DestinationComponent implements OnInit {
   onDelete(id: number) {
     this.destinationsService.deleteDestination(id).subscribe(
       (response) => {
-        if (response) { this.ngOnInit(); }
+        if (response) {
+          this.ngOnInit();
+        }
       },
       (error) => {
         console.log(error);
@@ -43,14 +45,26 @@ export class DestinationComponent implements OnInit {
   }
 
   onSubmit(id: number) {
-    const visitedFrom = this.markDestinationAsVisited['visitedFrom'];
-    const visitedUntil = this.markDestinationAsVisited['visitedUntil'];
+    const visitedFrom = this.markDestinationAsVisited.value['visitedFrom'];
+    const visitedUntil = this.markDestinationAsVisited.value['visitedUntil'];
     const note = this.markDestinationAsVisited['destinationNote'];
-    // this.destinationsService.markDestinationAsVisited(id, visitedFrom);
+
+    this.destinationsService.markDestinationAsVisited(id).subscribe(
+      (response) => {
+        if (response) {
+          this.ngOnInit();
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
     this.modalService.dismissAll();
   }
 
-  // from here pop-up modal
+
+  // from here -- pop-up modal --
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -67,7 +81,6 @@ export class DestinationComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
-
   }
 
 }

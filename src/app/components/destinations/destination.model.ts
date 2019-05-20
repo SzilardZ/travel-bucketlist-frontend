@@ -4,8 +4,8 @@ export class Destination {
   public location: string;
   public note: string;
   public visited: boolean;
-  public visitedFrom: Date;
-  public visitedUntil: Date;
+  public visitedFrom: string;
+  public visitedUntil: string;
 
   constructor(location: string, note: string) {
     this.location = location;
