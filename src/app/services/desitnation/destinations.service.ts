@@ -1,4 +1,4 @@
-import {Destination} from '../models/destination.model';
+import {Destination} from '../../models/destination.model';
 import {EventEmitter, Injectable} from '@angular/core';
 import {catchError, map} from 'rxjs/operators';
 import {Observable} from 'rxjs';

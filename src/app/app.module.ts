@@ -10,7 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { VisitedDestinationsComponent } from './components/destinations/visited-destinations/visited-destinations.component';
 import { HomeComponent } from './components/home/home.component';
-import {DestinationsService} from './services/destinations.service';
+import {DestinationsService} from './services/desitnation/destinations.service';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';

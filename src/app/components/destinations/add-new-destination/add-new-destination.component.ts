@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {DestinationsService} from '../../../services/destinations.service';
+import {DestinationsService} from '../../../services/desitnation/destinations.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
