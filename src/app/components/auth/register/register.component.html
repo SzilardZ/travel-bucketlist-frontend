@@ -1,5 +1,4 @@
 <div class="row">
-
   <div class="col-lg-6 mx-auto">
     <h3 class="bg-dark text-white p-2">Registration</h3>
 
@@ -24,6 +23,7 @@
                 class="help-block">Please enter a valid first name!</span>
         </div>
 
+
         <div class="form-group">
           <label for="last-name">Last Name</label>
           <input id="last-name" class="form-control" type="text" name="last_name" placeholder="Length: minimum 4 maximum 20 characters"
@@ -32,6 +32,7 @@
                 class="help-block">Please enter a valid last name!</span>
         </div>
 
+
         <div class="form-group">
           <label id="email-address-label" for="email-address">Email Address</label>
           <input id="email-address" class="form-control" name="email" type="email"
@@ -39,8 +40,8 @@
                  formControlName="email" >
           <span *ngIf="!editUserForm.get('email').valid && editUserForm.get('email').touched"
                 class="help-block">Please enter a valid first name!</span>
-
         </div>
+
 
         <div class="form-group">
           <label for="password">Password</label>
@@ -55,15 +56,6 @@
           <label id="password-confirmation-label" for="password_confirmation">Confirm Password</label>
           <input id="password_confirmation"  class="form-control" type="password" name="password_confirmation" placeholder="has to match previous field value"
                  formControlName="password_confirmation" >
-        </div>
-
-
-        <div class="form-group">
-          <label for="phone-input">Phone Number</label>
-          <input id="phone-input" class="form-control" type="tel" name="phone_number" placeholder="pattern: +36205561234"
-                 pattern="[+]{1}[0-9]{7,254}"  formControlName="phone_number">
-          <span *ngIf="!editUserForm.get('phone_number').valid && editUserForm.get('phone_number').touched"
-                class="help-block">Please enter a valid phone number</span>
         </div>
 
         <div class="form-group">
