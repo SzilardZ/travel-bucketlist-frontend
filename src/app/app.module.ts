@@ -14,6 +14,7 @@ import {DestinationsService} from './services/desitnation/destinations.service';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { UserComponent } from './components/user/user/user.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
