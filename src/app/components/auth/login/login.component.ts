@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     const data = this.loginForm.value;
     const loginForm = new AuthLoginInfo(data['username'], data['password']);
     this.authService.attemptAuth(loginForm).subscribe(
@@ -43,4 +43,5 @@ export class LoginComponent implements OnInit {
 
       }
     );
+  }
 }

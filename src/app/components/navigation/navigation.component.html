@@ -6,31 +6,36 @@
         Travel Bucket List
       </a>
     </li>
-    <li class="nav-item" role="presentation">
+    <li class="nav-item" role="presentation" *ngIf="!loggedIn()">
+      <a class="nav-link" routerLink="/login">Login</a>
+    </li>
+    <li class="nav-item" role="presentation" *ngIf="!loggedIn()">
+      <a class="nav-link" routerLink="/register">Register</a>
+    </li>
+    <li class="nav-item" role="presentation" *ngIf="loggedIn()">
       <a class="nav-link" routerLink="/visited-destinations">Visited Destinations</a>
     </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" href="#">Disabled</a>
-    </li>
+<!--    <li class="nav-item" role="presentation" *ngIf="loggedIn()">-->
+<!--      <a class="nav-link" routerLink="/logout">Log out</a>-->
+<!--    </li>-->
   </ul>
-  <ul class="nav navbar-nav ml-auto">
+  <ul class="nav navbar-nav ml-auto" *ngIf="loggedIn()">
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
         Hi, Username
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="#">My Profile</a>
-        <a class="dropdown-item" href="#">Logout</a>
+        <a class="dropdown-item" routerLink="/logout">Logout</a>
       </div>
     </li>
-<!--    <li class="nav-item">-->
-<!--      <a class="nav-link" href="#">Login</a>-->
-<!--    </li>-->
-<!--    <li class="nav-item">-->
-<!--      <a class="nav-link" href="#">Register</a>-->
-<!--    </li>-->
   </ul>
 </nav>
 <div class="main-image">
   <img src="/assets/img/main-image.jpg" width="100%" alt="Travel Bucket List">
+</div>
+<div *ngIf="!loggedIn()" class="row">
+  <div class="col-md-5">
+    <h3>Please log in to be able to save destinations!</h3>
+  </div>
 </div>

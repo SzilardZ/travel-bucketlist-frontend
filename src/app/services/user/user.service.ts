@@ -1,27 +1,34 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {DestinationsService} from '../desitnation/destinations.service';
+import {TokenStorageService} from '../auth/token-storage/token-storage.service';
+import {User} from '../../models/user.model';
+import {UserInfo} from '../../utils/user-info';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private userUrl = 'http://localhost:8080/api/test/user';
-  private pmUrl = 'http://localhost:8080/api/test/pm';
-  private adminUrl = 'http://localhost:8080/api/test/admin';
+  private user: User;
+  private baseUrl = 'http://localhost:8080/api/user/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private destinationsService: DestinationsService,
+              private http: HttpClient,
+              private tokenStorage: TokenStorageService) {
 
-  getUserBoard(): Observable<string> {
-    return this.http.get(this.userUrl, { responseType: 'text' });
   }
 
-  getPMBoard(): Observable<string> {
-    return this.http.get(this.pmUrl, { responseType: 'text' });
+  getUserFromDB() {
+    return this.http.get<User>(this.baseUrl + this.tokenStorage.getUsername());
   }
 
-  getAdminBoard(): Observable<string> {
-    return this.http.get(this.adminUrl, { responseType: 'text' });
+  updateUserInfo(userInfo: UserInfo) {
+    return this.http.put<User>(this.baseUrl + this.tokenStorage.getUsername(), userInfo);
+  }
+
+  deleteUserFromDB() {
+    return this.http.delete<string>(this.baseUrl + this.tokenStorage.getUsername());
   }
 }
