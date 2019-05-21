@@ -8,7 +8,7 @@ import {LogoutComponent} from '../components/auth/logout/logout.component';
 
 const appRoutes: Routes = [
   {path: 'visited-destinations', component: VisitedDestinationsComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'registration', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', canActivate: [AuthGuardService], component: LogoutComponent}
 ];

@@ -10,7 +10,7 @@
       <a class="nav-link" routerLink="/login">Login</a>
     </li>
     <li class="nav-item" role="presentation" *ngIf="!loggedIn()">
-      <a class="nav-link" routerLink="/register">Register</a>
+      <a class="nav-link" routerLink="/registration">Registration</a>
     </li>
     <li class="nav-item" role="presentation" *ngIf="loggedIn()">
       <a class="nav-link" routerLink="/visited-destinations">Visited Destinations</a>
@@ -36,6 +36,6 @@
 </div>
 <div *ngIf="!loggedIn()" class="row">
   <div class="col-lg-6 mx-auto">
-    <h3>Please log in to be able to save destinations!</h3>
+    <h3>Please log in or register to be able to save destinations!</h3>
   </div>
 </div>
