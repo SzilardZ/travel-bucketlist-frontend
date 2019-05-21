@@ -5,16 +5,17 @@ import { DestinationComponent } from './components/destinations/destination/dest
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { AddNewDestinationComponent } from './components/destinations/add-new-destination/add-new-destination.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VisitedDestinationsComponent } from './components/destinations/visited-destinations/visited-destinations.component';
 import { HomeComponent } from './components/home/home.component';
-import {DestinationsService} from './services/desitnation/destinations.service';
-import {HttpClientModule} from '@angular/common/http';
+import { DestinationsService } from './services/desitnation/destinations.service';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { UserComponent } from './components/user/user/user.component';
-import {AppRoutingModule} from './modules/app-routing.module';
+import { AppRoutingModule } from './modules/app-routing.module';
+import { LogoutComponent } from './components/auth/logout/logout.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {AppRoutingModule} from './modules/app-routing.module';
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
