@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { DestinationComponent } from './components/destinations/destination/destination.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import {RouterModule, Routes} from '@angular/router';
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { AddNewDestinationComponent } from './components/destinations/add-new-destination/add-new-destination.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -15,11 +14,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { UserComponent } from './components/user/user/user.component';
+import {AppRoutingModule} from './modules/app-routing.module';
 
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'visited-destinations', component: VisitedDestinationsComponent}
-];
 
 @NgModule({
   declarations: [
@@ -39,7 +35,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     NgbModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     HttpClientModule,
   ],
   providers: [DestinationsService],
