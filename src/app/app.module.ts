@@ -13,7 +13,7 @@ import { DestinationsService } from './services/desitnation/destinations.service
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { UserComponent } from './components/user/user/user.component';
+// import { UserComponent } from './components/user/user.component';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 
@@ -29,7 +29,7 @@ import { LogoutComponent } from './components/auth/logout/logout.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent,
+    // UserComponent,
     LogoutComponent,
   ],
   imports: [

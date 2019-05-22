@@ -34,9 +34,9 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUsername(data.username);
         this.tokenStorage.saveAuthorities(data.authorities);
 
-        this.authService.lodgedIn = true;
+        this.authService.loggedIn = true;
         console.log('OK');
-        this.router.navigate(['/lodgings/rented']);
+        this.router.navigate(['/destinations']);
       },
       error => {
         console.log(error);

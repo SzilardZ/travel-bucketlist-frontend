@@ -17,7 +17,7 @@ export class AuthService {
 
   private loginUrl = 'http://localhost:8080/api/auth/signin';
   private signupUrl = 'http://localhost:8080/api/auth/signup';
-  private _lodgedIn = false;
+  private _loggedIn = false;
 
   constructor(private http: HttpClient, private token: TokenStorageService) {
   }
@@ -30,16 +30,16 @@ export class AuthService {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
   }
 
-  isLogedIn(){
+  isLoggedIn(){
     return this.token.getToken() !== null;
   }
 
-  set lodgedIn(value: boolean) {
-    this._lodgedIn = value;
+  set loggedIn(value: boolean) {
+    this._loggedIn = value;
   }
 
   signOut() {
     window.sessionStorage.clear();
-    this.lodgedIn = false;
+    this.loggedIn = false;
   }
 }

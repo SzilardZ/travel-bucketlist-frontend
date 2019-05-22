@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {DestinationsService} from '../desitnation/destinations.service';
 import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 import {User} from '../../models/user.model';
