@@ -5,11 +5,11 @@
       <div class="form-group mx-auto">
         <h4 class="color-text-red" ></h4>
         <label for="email-login">Email address</label>
-        <input id="email-login" class="form-control" placeholder="Enter email address" type="text" name="username"
-               formControlName="username"><br>
+        <input id="email-login" class="form-control" placeholder="Enter your email address" type="email" name="email"
+               formControlName="email"><br>
 
         <label for="password-login">Password</label>
-        <input id="password-login" class="form-control" placeholder="Enter password" type="password" name="password"
+        <input id="password-login" class="form-control" placeholder="Enter your password" type="password" name="password"
                formControlName="password"><br>
       </div>
       <button class="btn btn-dark btn-block" [disabled]="!loginForm.valid">Login</button>
