@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 // import { UserComponent } from './components/user/user.component';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { LogoutComponent } from './components/auth/logout/logout.component';
+import { UserEditComponent } from './components/user/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { LogoutComponent } from './components/auth/logout/logout.component';
     RegisterComponent,
     // UserComponent,
     LogoutComponent,
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,
