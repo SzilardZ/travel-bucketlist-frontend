@@ -20,14 +20,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required]),
+      'username': new FormControl(null, [Validators.required]),
       'password': new FormControl(null, [Validators.required]),
     });
   }
 
   onSubmit() {
     const data = this.loginForm.value;
-    const loginForm = new AuthLoginInfo(data['email'], data['password']);
+    const loginForm = new AuthLoginInfo(data['username'], data['password']);
     this.authService.attemptAuth(loginForm).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);

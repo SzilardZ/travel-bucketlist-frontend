@@ -11,9 +11,6 @@ export class TokenStorageService {
   private roles: Array<string> = [];
   constructor() {}
 
-  signOut() {
-    window.sessionStorage.clear();
-  }
 
   public saveToken(token: string) {
     window.sessionStorage.removeItem(TOKEN_KEY);
@@ -48,5 +45,10 @@ export class TokenStorageService {
     }
 
     return this.roles;
+  }
+
+  public hasRole(role: string): boolean{
+    console.log(this.getAuthorities());
+    return this.getAuthorities().includes(role);
   }
 }

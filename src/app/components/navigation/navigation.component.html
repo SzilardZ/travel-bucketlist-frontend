@@ -15,17 +15,17 @@
     <li class="nav-item" role="presentation" *ngIf="loggedIn()">
       <a class="nav-link" routerLink="/visited-destinations">Visited Destinations</a>
     </li>
-<!--    <li class="nav-item" role="presentation" *ngIf="loggedIn()">-->
-<!--      <a class="nav-link" routerLink="/logout">Log out</a>-->
-<!--    </li>-->
+    <li class="nav-item active" *ngIf="loggedIn()">
+      <a class="nav-link text-white" routerLink="/logout">Logout<span class="sr-only"></span></a>
+    </li>
   </ul>
   <ul class="nav navbar-nav ml-auto" *ngIf="loggedIn()">
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    <li ngbDropdown class="nav-item dropdown">
+      <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
         Hi, Username
       </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">My Profile</a>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" routerLink="/logout">My Profile</a>
         <a class="dropdown-item" routerLink="/logout">Logout</a>
       </div>
     </li>
