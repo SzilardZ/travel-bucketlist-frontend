@@ -10,7 +10,6 @@ import {UserInfo} from '../../utils/user-info';
 })
 export class UserService {
 
-  private user: User;
   private baseUrl = 'http://localhost:8080/api/user/';
 
   constructor(private destinationsService: DestinationsService,

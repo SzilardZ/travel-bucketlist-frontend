@@ -3,6 +3,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {catchError, map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,10 @@ export class DestinationsService {
 
   selectedDestination = new EventEmitter<Destination>();
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private tokenStorage: TokenStorageService) {}
 
   storeDestination(destination: any) {
-    return this.httpClient.post('http://localhost:8080/add-destination', destination);
+    return this.httpClient.post('http://localhost:8080/add-destination/' + this.tokenStorage.getUsername(), destination);
   }
 
   createDestination(location: string, note: string): Destination {
@@ -23,7 +24,7 @@ export class DestinationsService {
   }
 
   getDestinations() {
-    return this.httpClient.get<Destination[]>('http://localhost:8080/destinations')
+    return this.httpClient.get<Destination[]>('http://localhost:8080/destinations/' + this.tokenStorage.getUsername())
       .pipe(map(
         (destinations) => {
           return destinations;

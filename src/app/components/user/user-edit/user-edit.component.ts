@@ -13,11 +13,8 @@ import {UserInfo} from '../../../utils/user-info';
 })
 export class UserEditComponent implements OnInit {
 
-
-  private id: number;
   private _user: User;
-
-  editUserForm: FormGroup;
+  private editUserForm: FormGroup;
 
   constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
   }
