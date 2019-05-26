@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DestinationsService} from './destinations.service';
-import {Destination} from './destination.model';
+import {DestinationsService} from '../../services/desitnation/destinations.service';
+import {Destination} from '../../models/destination.model';
 
 @Component({
   selector: 'app-destinations',

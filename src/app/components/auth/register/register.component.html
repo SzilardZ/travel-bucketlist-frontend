@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-lg-6 mx-auto">
+    <h3 class="bg-dark text-white p-2">Registration</h3>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="editUserForm" >
+      <div class="form-group mx-auto">
+
+        <div class="form-group">
+          <label for="first-name">Username</label>
+          <input id="username" class="form-control" type="text" name="username"
+                 placeholder="Minimum 4 maximum 20 characters"
+                 formControlName="username">
+          <span *ngIf="!editUserForm.get('username').valid && editUserForm.get('username').touched"
+                class="help-block">Please enter a valid username!</span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input id="first-name" class="form-control" type="text" name="first_name" placeholder="Minimum 4 maximum 20 characters"
+                 formControlName="first_name">
+          <span *ngIf="!editUserForm.get('first_name').valid && editUserForm.get('first_name').touched"
+                class="help-block">Please enter a valid first name!</span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input id="last-name" class="form-control" type="text" name="last_name" placeholder="Minimum 4 maximum 20 characters"
+                 formControlName="last_name">
+          <span *ngIf="!editUserForm.get('last_name').valid && editUserForm.get('last_name').touched"
+                class="help-block">Please enter a valid last name!</span>
+        </div>
+
+
+        <div class="form-group">
+          <label id="email-address-label" for="email-address">Email Address</label>
+          <input id="email-address" class="form-control" name="email" type="email"
+                 placeholder="som3thing@s0mething.com"
+                 formControlName="email" >
+          <span *ngIf="!editUserForm.get('email').valid && editUserForm.get('email').touched"
+                class="help-block">Please enter a valid email address!</span>
+        </div>
+
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" class="form-control" type="password" name="password" placeholder="Minimum 8 characters"
+                 formControlName="password">
+          <span *ngIf="!editUserForm.get('password').valid && editUserForm.get('password').touched"
+                class="help-block">Please enter a valid password!</span>
+        </div>
+
+
+        <div class="form-group">
+          <label id="password-confirmation-label" for="password_confirmation">Confirm Password</label>
+          <input id="password_confirmation"  class="form-control" type="password" name="password_confirmation"
+                 formControlName="password_confirmation" >
+        </div>
+
+        <div class="form-group">
+          <button value="Submit" id="submit" class="btn btn-dark btn-block" [disabled]="!editUserForm.valid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

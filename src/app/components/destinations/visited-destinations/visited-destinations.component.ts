@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Destination} from '../destination.model';
-import {DestinationsService} from '../destinations.service';
+import {Destination} from '../../../models/destination.model';
+import {DestinationsService} from '../../../services/desitnation/destinations.service';
 
 @Component({
   selector: 'app-visited-destinations',
@@ -14,7 +14,11 @@ export class VisitedDestinationsComponent implements OnInit {
   constructor(private destinationsService: DestinationsService) { }
 
   ngOnInit() {
-    // this.destinations = this.destinationsService.getDestinations();
+    this.destinationsService.getDestinations()
+      .subscribe( response => {
+        console.log(response);
+        this.destinations = response;
+      });
   }
 
 }

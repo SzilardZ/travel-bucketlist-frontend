@@ -1,22 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { DestinationComponent } from './destinations/destination/destination.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import {RouterModule, Routes} from '@angular/router';
-import { DestinationsComponent } from './destinations/destinations.component';
-import { AddNewDestinationComponent } from './destinations/add-new-destination/add-new-destination.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { VisitedDestinationsComponent } from './destinations/visited-destinations/visited-destinations.component';
-import { HomeComponent } from './home/home.component';
-import {DestinationsService} from './destinations/destinations.service';
-import {HttpClientModule} from '@angular/common/http';
+import { DestinationComponent } from './components/destinations/destination/destination.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { DestinationsComponent } from './components/destinations/destinations.component';
+import { AddNewDestinationComponent } from './components/destinations/add-new-destination/add-new-destination.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VisitedDestinationsComponent } from './components/destinations/visited-destinations/visited-destinations.component';
+import { HomeComponent } from './components/home/home.component';
+import { DestinationsService } from './services/desitnation/destinations.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+// import { UserComponent } from './components/user/user.component';
+import { AppRoutingModule } from './modules/app-routing.module';
+import { LogoutComponent } from './components/auth/logout/logout.component';
+import { UserEditComponent } from './components/user/user-edit/user-edit.component';
 
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'visited-destinations', component: VisitedDestinationsComponent}
-];
 
 @NgModule({
   declarations: [
@@ -27,13 +28,18 @@ const appRoutes: Routes = [
     AddNewDestinationComponent,
     VisitedDestinationsComponent,
     HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    // UserComponent,
+    LogoutComponent,
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     NgbModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     HttpClientModule,
   ],
   providers: [DestinationsService],

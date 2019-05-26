@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Destination} from '../destination.model';
-import {DestinationsService} from '../destinations.service';
+import {Destination} from '../../../models/destination.model';
+import {DestinationsService} from '../../../services/desitnation/destinations.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -23,6 +23,48 @@ export class DestinationComponent implements OnInit {
     this.destinationsService.selectedDestination.emit(this.destination);
   }
 
+  ngOnInit() {
+    this.markDestinationAsVisited = new FormGroup({
+      'visitedFrom': new FormControl(null, Validators.required),
+      'visitedUntil': new FormControl(null, Validators.required),
+      'destinationNote': new FormControl(null)
+    })
+  }
+
+  onDelete(id: number) {
+    this.destinationsService.deleteDestination(id).subscribe(
+      (response) => {
+        if (response) {
+          this.ngOnInit();
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  onSubmit(id: number) {
+    const visitedFrom = this.markDestinationAsVisited.value['visitedFrom'];
+    const visitedUntil = this.markDestinationAsVisited.value['visitedUntil'];
+    const note = this.markDestinationAsVisited['destinationNote'];
+
+    this.destinationsService.markDestinationAsVisited(id).subscribe(
+      (response) => {
+        if (response) {
+          this.ngOnInit();
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.modalService.dismissAll();
+  }
+
+
+  // from here -- pop-up modal --
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -39,33 +81,6 @@ export class DestinationComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
-
   }
 
-  ngOnInit() {
-    this.markDestinationAsVisited = new FormGroup({
-      'visitedFrom': new FormControl(null, Validators.required),
-      'visitedUntil': new FormControl(null, Validators.required),
-      'destinationNote': new FormControl(null)
-    })
-  }
-
-  onDelete(id: number) {
-    this.destinationsService.deleteDestination(id).subscribe(
-      (response) => {
-        if (response) { this.ngOnInit(); }
-      },
-      (error) => {
-        console.log(error);
-      }
-    );;
-  }
-
-  onSubmit(id: number) {
-    const visitedFrom = this.markDestinationAsVisited['visitedFrom'];
-    const visitedUntil = this.markDestinationAsVisited['visitedUntil'];
-    const note = this.markDestinationAsVisited['destinationNote'];
-    // this.destinationsService.markDestinationAsVisited(id, visitedFrom);
-    this.modalService.dismissAll();
-  }
 }
