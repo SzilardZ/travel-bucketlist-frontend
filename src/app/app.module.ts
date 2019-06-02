@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { AppRoutingModule } from './modules/app-routing.module';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
+import {httpInterceptorProviders} from './security/auth-interceptor';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { UserEditComponent } from './components/user/user-edit/user-edit.compone
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [DestinationsService],
+  providers: [DestinationsService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

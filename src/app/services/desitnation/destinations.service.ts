@@ -15,8 +15,8 @@ export class DestinationsService {
 
   constructor(private httpClient: HttpClient, private tokenStorage: TokenStorageService) {}
 
-  storeDestination(destination: any) {
-    return this.httpClient.post('http://localhost:8080/add-destination/' + this.tokenStorage.getUsername(), destination);
+  storeDestination(destination: Destination) {
+    return this.httpClient.post('http://localhost:8080/api/destinations/' + this.tokenStorage.getUsername() + '/add-destination', destination);
   }
 
   createDestination(location: string, note: string): Destination {
@@ -24,26 +24,20 @@ export class DestinationsService {
   }
 
   getDestinations() {
-    return this.httpClient.get<Destination[]>('http://localhost:8080/destinations/' + this.tokenStorage.getUsername())
+    return this.httpClient.get<Destination[]>('http://localhost:8080/api/destinations/' + this.tokenStorage.getUsername())
       .pipe(map(
         (destinations) => {
           return destinations;
         }
       ))
-      .pipe(catchError(
-        (error: Response) => {
-          return Observable.throw('Something went wrong!');
-        }
-      ))
   }
 
   deleteDestination(id: number) {
-    return this.httpClient.delete<string>('http://localhost:8080/delete-destination/' + id);
+    return this.httpClient.delete<string>('http://localhost:8080/api/destinations/delete-destination/' + this.tokenStorage.getUsername() + id);
   }
 
   markDestinationAsVisited(id: number) {
-    console.log('UUUUUUUU ' + id);
-    return this.httpClient.put('http://localhost:8080/add-to-visited/', id);
+    return this.httpClient.put('http://localhost:8080/api/destinations/add-to-visited/' + this.tokenStorage.getUsername(), id);
   }
 
 }
